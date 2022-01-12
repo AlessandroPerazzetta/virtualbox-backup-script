@@ -11,7 +11,7 @@ Help()
    # Display Help    
    echo "VirtualBox Backup Script"    
    echo    
-   echo "Syntax: scriptTemplate [-g|h|v|V]"    
+   echo "Syntax: vbox-backup-vms.sh [-a|h]"    
    echo "options:"    
    echo "a     Set VM list backup to all"    
    echo "h     Print this Help."    
