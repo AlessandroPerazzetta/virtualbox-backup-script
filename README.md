@@ -1,2 +1,3 @@
-# virtualbox-backup-script
-VirtualBox Backup Script
+# VirtualBox Backup Script
+
+Export a list or all Virtual Machines as appliance
