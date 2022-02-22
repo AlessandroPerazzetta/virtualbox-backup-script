@@ -1,5 +1,7 @@
-#!/bin/bash    
-    
+#!/bin/bash
+
+NOW=$(date +"%Y%m%d-%H%M")
+
 # Declare default vm filter list    
 vm_filter="list"    
     
@@ -38,7 +40,9 @@ if [ $vm_filter == "all" ]; then
 else    
     echo "Virtual Machines filter set to: list"    
 fi    
-    
+
+mkdir -p ${NOW}
+
 # Iterate the vm list string array using for loop    
 for vm in ${vm_list[@]}; do    
     if vboxmanage showvminfo $vm --machinereadable | egrep '^VMState="running"$' > /dev/null; then    
@@ -46,5 +50,5 @@ for vm in ${vm_list[@]}; do
         vboxmanage controlvm $vm poweroff    
     fi    
     echo "Backup VM: $vm into $vm.ovf"    
-    vboxmanage export $vm -o $vm.ova --ovf20 --options manifest    
+    vboxmanage export $vm -o $NOW/$vm.ova --ovf20 --options manifest    
 done                                                                                         
